@@ -1,2 +1,12 @@
 <h1>Items#show</h1>
-<p>Find me in app/views/items/show.html.erb</p>
+
+
+<div>
+  <h1>Item name: <%= @item.name %> </h1>
+  <%= link_to "EDIT", edit_list_item_path(@list, @item) %>
+  <br>
+  <%= button_to "DELETE", @list, @item, method: :delete, date: { turbo_confirm: "Are you sure?" } %>
+
+  <br>
+  <%= link_to "BACK", list_path(@list) %>
+</div>

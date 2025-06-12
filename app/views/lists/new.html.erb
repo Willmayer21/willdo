@@ -1,12 +1,4 @@
-<h1>NEW</h1>
-<%= form_with model: @list do |form| %>
-<div>
-  <%= form.label :name %>
-  <%= form.text_field :name %>
-</div>
-<div>
-  <%= form.submit %>
-</div>
-<% end %>
+<h1>LIST NEW</h1>
+<%= render "form", model: @list %>
 <br>
 <%= link_to "HOME", lists_path %>

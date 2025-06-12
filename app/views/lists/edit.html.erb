@@ -1,2 +1,4 @@
-<h1>Lists#edit</h1>
-<p>Find me in app/views/lists/edit.html.erb</p>
+<h1>LIST EDIT</h1>
+<%= @list.name %>
+<%= render "form", model: @list %>
+<%= link_to "CANCEL", list_path(@list) %>

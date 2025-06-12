@@ -1,0 +1,14 @@
+
+how the following works button_to "delete", somepath, method: :delete
+form and path they use
+<%= button_to "DELETE", list_item_path(@list, @item), method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+----> how here above creates here under
+<form action="/lists/1/items/2" method="post" data-turbo-confirm="Are you sure?">
+  <input type="hidden" name="_method" value="delete">
+  <button type="submit">DELETE</button>
+</form>
+
+rails, svelte
+no front end frame work
+spa or ssr (service side rendered)
+do rails server side page

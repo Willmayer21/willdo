@@ -1,6 +1,3 @@
 <h1>New Item for <%= @list.name %></h1>
-<%= form_with(model: [@list, @item]) do |form| %>
-  <%= form.label :name %>
-  <%= form.text_field :name %>
-  <%= form.submit %>
-<% end %>
+<%= render "form_item", list: @list, item: @item %>
+<%= link_to "CANCEL", list_path(@list) %>

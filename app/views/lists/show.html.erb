@@ -1,14 +1,47 @@
-<h1>LIST NAME</h1>
+<!-- <h1>LIST SHOW</h1>
 <div>
   <%= @list.name %>
 </div>
 <div>
   <ul>
     <% @items.each do |item| %>
-    <li><%= item.name %></li>
+    <li><%= link_to item.name, list_item_path(item.list, item) %></li>
     <% end %>
   </ul>
 </div>
 <%= link_to "CREATE NEW ITEM", new_list_item_path(@list) %>
+<%= link_to "EDIT LIST NAME", edit_list_path(@list) %>
+<%= button_to "DELETE", list_path(@list), method: :delete, data: { turbo_confirm: "Are you sure?" } %>
 <br>
 <%= link_to "HOME", lists_path %>
+-->
+
+
+<div class="w-[90%] p-4 bg-orange-50 border rounded-lg border-red-700">
+  <div class="font-normal mb-2">
+    <p class="text-2xl mb-05">30%</p>
+    <p class="text-xs">List Completion</p>
+  </div>
+  <div class="mb-4">
+    <div class="h-1 bg-red-200 w-full rounded">
+      <div style="width: 30%" class="h-full transition-all duration-1000 rounded bg-red-600"></div>
+    </div>
+  </div>
+  <% @items.each do |item| %>
+  <div class="mb-2">
+    <a href="#">
+      <div class="flex cursor-pointer text-md">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check" width="16"
+                    height="16" viewBox="0 0 24 24" stroke-width="2" stroke="#fff" fill="none" stroke-linecap="round"
+                    stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <circle cx="12" cy="12" r="9" fill="#00AA45"></circle>
+            <path d="M9 12l2 2l4 -4"></path>
+        </svg>
+        <p class="ml-1 line-through"><%= item.name %></p>
+      </div>
+    </a>
+  </div>
+  <% end %>
+
+</div>

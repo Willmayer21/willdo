@@ -1,10 +1,10 @@
 class ListsController < ApplicationController
+  before_action :set_list, only: %i[ show edit update destroy ]
   def index
     @lists = List.all
   end
 
   def show
-    @list = List.find(params[:id])
     @items = @list.items
   end
 
@@ -24,12 +24,26 @@ class ListsController < ApplicationController
   def edit
   end
 
+  def update
+    if @list.update(list_params)
+      redirect_to list_path(@list)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def destroy
+    @list.destroy
+    redirect_to lists_path
   end
 
   private
 
   def list_params
     params.expect(list: [ :name ])
+  end
+
+  def set_list
+    @list = List.find(params[:id])
   end
 end
