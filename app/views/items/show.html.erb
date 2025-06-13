@@ -1,12 +1,16 @@
-<h1>Items#show</h1>
+<div class="border p-8 flex flex-col justify-center min-w-15rem">
+  <div class="border p-8 text-center">
+    <h1>ITEM: <%= @item.name %> </h1>
+  </div>
+  <div class="py-1rem">
+    <p>jo</p>
+    <p>jo</p>
 
-
-<div>
-  <h1>Item name: <%= @item.name %> </h1>
-  <%= link_to "EDIT", edit_list_item_path(@list, @item) %>
-  <br>
-  <%= button_to "DELETE", @list, @item, method: :delete, date: { turbo_confirm: "Are you sure?" } %>
-
-  <br>
-  <%= link_to "BACK", list_path(@list) %>
+    <p>jo</p>
+  </div>
+  <div class="border p-8 text-center flex flex-col ">
+    <%= link_to "EDIT", edit_list_item_path(@list, @item) %>
+    <%= button_to "DELETE", list_item_path(@list, @item), method: :delete, date: { turbo_confirm: "Are you sure?" } %>
+    <%= link_to "BACK", list_path(@list) %>
+  </div>
 </div>

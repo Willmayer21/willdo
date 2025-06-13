@@ -1,9 +1,15 @@
-<div>
-  <h1>LIST INDEX</h1>
-  <ul>
-    <% @lists.each do |list| %>
-      <li><%= link_to list.name, list_path(list) %></li>
-    <% end %>
-  </ul>
+<div class="border p-8 flex flex-col justify-center min-w-15rem">
+  <div class="border p-8 text-center">
+    <h1>LISTS</h1>
+  </div>
+  <div class="py-1rem">
+    <ul>
+      <% @lists.each do |list| %>
+        <li><%= link_to list.name, list_path(list) %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="border p-8 text-center">
+    <%= link_to "NEW LIST", new_list_path, class: "text-center" %>
+  </div>
 </div>
-<%= link_to "CREATE NEW LIST", new_list_path %>
