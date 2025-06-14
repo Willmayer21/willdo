@@ -1,5 +1,15 @@
 <%= form_with(model: [@list, @item]) do |form| %>
-  <%= form.label :name %>
-  <%= form.text_field :name %>
-  <%= form.submit %>
+  <div class="flex">
+    <div>
+      <%= form.label :name %>
+    </div>
+    <div class="border ml-05rem pl-05rem">
+      <%= form.text_field :name %>
+    </div>
+  </div>
+  <div class="text-center pt-1">
+    <%= form.submit(
+      form.object.persisted? ? "EDIT ITEM" : "CREATE   ITEM"
+    ) %>
+  </div>
 <% end %>

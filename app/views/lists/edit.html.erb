@@ -1,4 +1,11 @@
-<h1>LIST EDIT</h1>
-<%= @list.name %>
-<%= render "form", model: @list %>
-<%= link_to "CANCEL", list_path(@list) %>
+<div class="border p-8 flex flex-col justify-center min-w-15rem">
+  <div class="border p-8 text-center">
+    <h1>EDIT LIST</h1>
+  </div>
+  <div class="py-1rem">
+    <%= render "form", model: @list %>
+  </div>
+  <div class="border p-8 text-center flex flex-col ">
+   <%= link_to "CANCEL", list_path(@list) %>
+  </div>
+</div>

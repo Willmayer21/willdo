@@ -13,7 +13,8 @@
               <%= link_to item.name, list_item_path(item.list, item) %>
             </div>
             <div>
-              <%= item.completed %>
+              <%= button_to (item.completed? ? "✅" : "❌"), toggle_list_item_path(@list, item),
+              method: :patch %>
             </div>
           </div>
         </li>
@@ -27,10 +28,3 @@
   <%= link_to "HOME", lists_path %>
   </div>
 </div>
-
-
-<style>
-  .justify-between {
-    justify-content: space-between;
-  }
-</style>

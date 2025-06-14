@@ -1,5 +1,11 @@
-<h1>Items#edit</h1>
-<p>Find me in app/views/items/edit.html.erb</p>
-<h1>this is list name: <%= @list.name %> </h1>
-<h1>this is the item: <%= @item.name %></h1>
-<%= render "form_item", list: @list, item: @item %>
+<div class="border p-8 flex flex-col justify-center min-w-15rem">
+  <div class="border p-8 text-center">
+    <h1>EDIT ITEM</h1>
+  </div>
+  <div class="py-1rem">
+    <%= render "form_item", list: @list, item: @item %>
+  </div>
+  <div class="border p-8 text-center flex flex-col ">
+   <%= link_to "CANCEL", list_item_path(@list, @item) %>
+  </div>
+</div>

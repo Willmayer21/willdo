@@ -1,4 +1,11 @@
-<h1>LIST NEW</h1>
-<%= render "form", model: @list %>
-<br>
-<%= link_to "HOME", lists_path %>
+<div class="border p-8 flex flex-col justify-center min-w-15rem">
+  <div class="border p-8 text-center">
+    <h1>NEW LIST</h1>
+  </div>
+  <div class="py-1rem">
+    <%= render "form", model: @list %>
+  </div>
+  <div class="border p-8 text-center flex flex-col ">
+   <%= link_to "CANCEL", lists_path %>
+  </div>
+</div>

@@ -3,10 +3,16 @@
     <h1>ITEM: <%= @item.name %> </h1>
   </div>
   <div class="py-1rem">
-    <p>jo</p>
-    <p>jo</p>
-
-    <p>jo</p>
+    <div class="flex justify-between">
+      <p>Completed:</p>
+      <div>
+        <%= button_to (@item.completed? ? "✅" : "❌"), toggle_list_item_path(@list, @item),
+        method: :patch %>
+      </div>
+    </div>
+    <div>
+      <p>Decription:</p>
+    </div>
   </div>
   <div class="border p-8 text-center flex flex-col ">
     <%= link_to "EDIT", edit_list_item_path(@list, @item) %>
