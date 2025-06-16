@@ -1,11 +1,11 @@
 class ListsController < ApplicationController
-  before_action :set_list, only: %i[ show edit update destroy ]
+  before_action :set_list, only: %i[ show edit edit_name update destroy ]
   def index
     @lists = List.all
   end
 
   def show
-    @items = @list.items
+    @items = @list.items.order(completed: :asc)
   end
 
   def new
@@ -22,6 +22,9 @@ class ListsController < ApplicationController
   end
 
   def edit
+  end
+
+  def edit_name
   end
 
   def update

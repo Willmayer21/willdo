@@ -5,7 +5,7 @@
   <div class="py-1rem">
     <ul>
       <% @lists.each do |list| %>
-        <li><%= link_to list.name, list_path(list) %></li>
+        <li><%= link_to list.name.upcase, list_path(list) %></li>
       <% end %>
     </ul>
   </div>

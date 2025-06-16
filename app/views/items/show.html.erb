@@ -1,17 +1,21 @@
 <div class="border p-8 flex flex-col justify-center min-w-15rem">
   <div class="border p-8 text-center">
-    <h1>ITEM: <%= @item.name %> </h1>
+    <h1><%= @item.name.upcase %> </h1>
   </div>
   <div class="py-1rem">
     <div class="flex justify-between">
-      <p>Completed:</p>
+      <p>COMPLETED:</p>
       <div>
-        <%= button_to (@item.completed? ? "✅" : "❌"), toggle_list_item_path(@list, @item),
+        <%= button_to (@item.completed? ? "✅" : "❌"), toggle_list_item_path(@list, @item, from_item: true),
         method: :patch %>
       </div>
     </div>
+    <div class="flex justify-between">
+      <p>LIST:</p>
+      <p><%= @list.name.upcase %></p>
+    </div>
     <div>
-      <p>Decription:</p>
+      <p>DESCRIPTION:</p>
     </div>
   </div>
   <div class="border p-8 text-center flex flex-col ">

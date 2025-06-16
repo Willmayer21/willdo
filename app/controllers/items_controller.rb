@@ -38,7 +38,13 @@ class ItemsController < ApplicationController
 
   def toggle
     @item.update(completed: !@item.completed)
-    redirect_to list_path(@list)
+    target = params[:from_list] == "true" ? list_path(@list) : list_item_path(@item)
+    redirect_to target
+    # if params[:from_list] == "true"
+    #   redirect_to list_path(@list)
+    # elsif params[:from_item] == "true"
+    #   redirect_to list_item_path(@item)
+    # end
   end
 
   private

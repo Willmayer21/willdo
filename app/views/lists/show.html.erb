@@ -2,18 +2,18 @@
 
 <div class="border p-8 flex flex-col justify-center min-w-15rem">
   <div class="border p-8 text-center">
-    <h1>LIST: <%= @list.name %></h1>
+    <h1><%= @list.name.upcase %></h1>
   </div>
   <div class="py-1rem">
     <ul>
       <% @items.each do |item| %>
         <li>
           <div class="flex justify-between">
-            <div>
-              <%= link_to item.name, list_item_path(item.list, item) %>
+            <div class="<%= item.completed? ? "crossed" : "" %>">
+              <%= link_to item.name.upcase, list_item_path(item.list, item) %>
             </div>
             <div>
-              <%= button_to (item.completed? ? "✅" : "❌"), toggle_list_item_path(@list, item),
+              <%= button_to (item.completed? ? "✅" : "❌"), toggle_list_item_path(@list, item, from_list: true),
               method: :patch %>
             </div>
           </div>
@@ -23,8 +23,15 @@
   </div>
   <div class="border p-8 text-center flex flex-col ">
   <%= link_to "NEW ITEM", new_list_item_path(@list) %>
-  <%= link_to "EDIT LIST NAME", edit_list_path(@list) %>
-  <%= button_to "DELETE", list_path(@list), method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+  <%= link_to "EDIT LIST", edit_list_path(@list) %>
   <%= link_to "HOME", lists_path %>
   </div>
 </div>
+
+<style>
+  .crossed {
+    text-decoration-line: line-through;
+    text-decoration-color: black;
+    text-decoration-thickness: 1px;
+  }
+</style>

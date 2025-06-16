@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   resources :lists do
+    member do
+      get "edit_name"
+    end
     resources :items do
       member { patch :toggle }
     end

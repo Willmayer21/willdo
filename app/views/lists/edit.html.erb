@@ -2,8 +2,11 @@
   <div class="border p-8 text-center">
     <h1>EDIT LIST</h1>
   </div>
-  <div class="py-1rem">
-    <%= render "form", model: @list %>
+  <div class="p-8 text-center flex flex-col">
+    <%= link_to "EDIT LIST NAME", edit_name_list_path(@list) %>
+  </div>
+  <div class="p-8 text-center flex flex-col">
+    <%= button_to "DELETE LIST", list_path(@list), method: :delete, data: { turbo_confirm: "Are you sure?" } %>
   </div>
   <div class="border p-8 text-center flex flex-col ">
    <%= link_to "CANCEL", list_path(@list) %>
