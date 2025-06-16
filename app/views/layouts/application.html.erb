@@ -23,6 +23,9 @@
   </head>
 
   <body>
+    <nav>
+      <%= button_to "LOG OUT", session_path, method: :delete if authenticated? %>
+    </nav>
     <main class="flex justify-center">
       <%= yield %>
     </main>

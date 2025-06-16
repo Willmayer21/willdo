@@ -1,0 +1,69 @@
+
+.align-center {
+  align-items: center;
+}
+
+.align-self {
+  align-self: center;
+}
+
+.border {
+  border: 1px solid black;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.ml-1rem {
+  margin-left: 1rem;
+}
+
+.ml-05rem {
+  margin-left: 0.5rem;
+}
+
+.min-w-15rem {
+  min-width: 15rem;
+}
+
+.max-w-15rem {
+  max-width: 15rem;
+}
+
+.py-1rem {
+  padding: 1rem 0 1rem 0;
+}
+
+.p-8 {
+  padding: 8px;
+}
+
+.pl-05rem {
+  padding-left: 0.5rem;
+}
+
+.pt-1 {
+  margin-top: 1rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+input:-webkit-autofill {
+  background-color: transparent !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
