@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_16_145848) do
+ActiveRecord::Schema[8.0].define(version: 2025_06_16_180140) do
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.integer "list_id", null: false
@@ -24,6 +24,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_16_145848) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_lists_on_user_id"
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -44,5 +46,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_16_145848) do
   end
 
   add_foreign_key "items", "lists"
+  add_foreign_key "lists", "users"
   add_foreign_key "sessions", "users"
 end
