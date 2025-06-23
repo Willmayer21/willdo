@@ -1,7 +1,9 @@
 class ListsController < ApplicationController
+  before_action :authenticated?
   before_action :set_list, only: %i[ show edit edit_name update destroy ]
   def index
-    @lists = List.all
+    # @lists = List.all
+    @lists = Current.user.lists
   end
 
   def show
@@ -14,6 +16,7 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(list_params)
+    @list.user_id = Current.user.id
     if @list.save
       redirect_to @list
     else
